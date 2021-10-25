@@ -16,7 +16,7 @@ public:
         
         while(n >= k){
             ListNode* help = prev;
-            ListNode* x = curr;
+            ListNode* new_prev = curr;
             for(int i = 1; i <= k; i++){
                 nextPtr = curr->next;
                 curr->next = prev;
@@ -24,8 +24,8 @@ public:
                 curr = nextPtr;
             }
             help->next = prev;
-            prev = x;
-            x->next = curr;
+            prev = new_prev;
+            new_prev->next = curr;
             n -= k;
         }
         return dummy.next;
